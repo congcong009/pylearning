@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 pd.set_option('expand_frame_repr', False)
 
 # 导入数据
-stock_data = pd.read_csv('C:/Users/HS01/PycharmProjects/pylearning/learn3/data/stock_data.csv', encoding='gbk')  # 此处填入数据在本地的路径
-stock_data.columns = [i.encode('utf8') for i in stock_data.columns]
+stock_data = pd.read_csv(r'C:/Users/HS01/PycharmProjects/pylearning/learn3/data/stock_data.csv', encoding='gbk')
+# stock_data.columns = [i.encode('utf8') for i in stock_data.columns]
 stock_data['交易日期'] = pd.to_datetime(stock_data['交易日期'])
 
 # 排序

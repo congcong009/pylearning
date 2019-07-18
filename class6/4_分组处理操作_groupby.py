@@ -3,7 +3,7 @@ pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 
 
 # =====导入数据
-df = pd.read_csv('/Users/jxing/Desktop/coin_quant_class/data/class5/BITFINEX-1H-data-20180124.csv', skiprows=1)
+df = pd.read_csv('C:/Users/HS01/PycharmProjects/pylearning/class6/data/BITFINEX-1H-data-20180124.csv', skiprows=1)
 
 
 # =====groupby常用操作汇总

@@ -1,9 +1,3 @@
-"""
-此为多行注释方式
-author: xingbuxing
-date: 2018年01月11日
-功能：本程序主要介绍python的常用的数据类型，以及计算符号。希望以后大家只要看这个程序，就能回想起相关的基础知识。
-"""
 
 # ===注释的用法
 # 在每一行的开头，加上#，是对该行进行单行注释
@@ -18,8 +12,8 @@ date: 2018年01月11日
 
 # ===数字,num
 # int类型的整数
-bfx_coin_num = 23  # 整数，BITFINEX交易所有23个币正在交易
-print(bfx_coin_num, type(bfx_coin_num))  # type()函数的作用是输出变量的类型
+# bfx_coin_num = 23  # 整数，BITFINEX交易所有23个币正在交易
+# print(bfx_coin_num, type(bfx_coin_num))  # type()函数的作用是输出变量的类型
 # float类型的浮点数
 # eth_usd_price = 1231.7  # 浮点数，以太坊价格1231.7
 # print(eth_usd_price, type(eth_usd_price))

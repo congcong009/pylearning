@@ -1,10 +1,11 @@
 import pandas as pd
 
 # ===从hdf中读取1分钟数据
-df = pd.read_hdf('/Users/jxing/Desktop/coin_quant_class/data/class6/eos_1min_data.h5', key='all_data')
+df = pd.read_hdf('C:/Users/HS01/PycharmProjects/pylearning/class6/data/eos_1min_data.h5', key='all_data')
 # 选取某一时间段
 df = df[df['candle_begin_time'] >= pd.to_datetime('2017-03-01')]
-print(df.head(10))
+# print(df.head(10))
+# exit()
 
 # 《数据周线转换示意图》
 
@@ -23,7 +24,8 @@ period_df['low'] = df['low'].resample(rule=rule_type).min()
 period_df['volume'] = df['volume'].resample(rule=rule_type).sum()
 
 period_df = period_df[['open', 'high', 'low', 'close', 'volume']]
-
+print(period_df)
+exit()
 # ===第二种方法：将1分钟数据转为5分钟数据
 rule_type = '5T'
 period_df = df.resample(rule=rule_type, on='candle_begin_time', base=0, label='left', closed='left').agg(

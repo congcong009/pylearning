@@ -1,9 +1,3 @@
-"""
-author: xingbuxing
-date: 2018年01月11日
-功能：本程序主要介绍python的常用内置数据结果，如list、dict等。希望以后大家只要看这个程序，就能回想起相关的基础知识。
-"""
-
 
 # =====list介绍
 # 使用[]中括号就可以新建一个数组。
@@ -53,8 +47,8 @@ date: 2018年01月11日
 # list_var = [1, 2, 3, 4, 5]
 # print(len(list_var))  # list中元素的个数，或者说是list的长度
 # print(len([]))  # 空list的长度是？
-# print(max(list_var))  # 这个list中最大的元素，
-# print(min(list_var))  # 最小的元素
+# # print(max(list_var))  # 这个list中最大的元素，
+# # print(min(list_var))  # 最小的元素
 
 
 # =====list常见操作：删除其中的一个元素
@@ -171,7 +165,7 @@ date: 2018年01月11日
 # print(symbol.split(', '))
 # print(symbol.split(', ')[0])
 # print(symbol.split('usd'))
-# 逆操作
+# # 逆操作
 # symbol_list = ['btcusd', 'ethusd', 'xrpusd']
 # print(', '.join(symbol_list))
 

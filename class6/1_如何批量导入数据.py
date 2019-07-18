@@ -3,23 +3,24 @@ import os
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 
 # =====导入EOSUSD每一天的1分钟数据
-df = pd.read_csv('/Users/jxing/Desktop/coin_quant_class/data/class6/BITFINEX/EOSUSD/BITFINEX_EOSUSD_20170701_1T.csv',
+df = pd.read_hdf('C:/Users/HS01/PycharmProjects/pylearning/class6/data/eos_1min_data.h5',
                  skiprows=1,
                  parse_dates=['candle_begin_time'])
-
+# print(df)
+# exit()
 # =====批量导入EOSUSD所有天的一分钟数据
 # 系统自带函数os.walk，用于遍历文件夹中的所有文件，os是python自带的系统库
 # 演示os.walk
-for root, dirs, files in os.walk('/Users/jxing/Desktop/coin_quant_class/data'):
+for root, dirs, files in os.walk('C:/Users/HS01/PycharmProjects/pylearning/class6/data'):
     # root输出文件夹，dirs输出root下所有的文件夹，files输出root下的所有的文件
     print('root:', root)
     print('dirs:', dirs)
     print('files:', files)
     print()
-
+    # exit()
 # 批量读取文件名称
 file_list = []
-for root, dirs, files in os.walk('/Users/jxing/Desktop/coin_quant_class/data/class6'):
+for root, dirs, files in os.walk('C:/Users/HS01/PycharmProjects/pylearning/class6/data'):
     # 当files不为空的时候
     if files:
         for f in files:

@@ -1,11 +1,3 @@
-"""
-程序开头注释
-author: xingbuxing
-date: 2018年01月11日
-功能：本程序主要介绍python的函数
-"""
-
-
 # # =====基本函数的定义
 # def print_h(str_var='hello world'):
 #     # 以下是函数内容
