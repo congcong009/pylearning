@@ -8,13 +8,13 @@ import re
 
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 
-inputdir = r'/Users/congcong009/Downloads/爬虫2020/2020-2-17/安心购/'  #/Users/congcong009/Downloads/安心购/'  # E:/Hammer_Studio/tmp-project/咨询项目/艾尔建/爬虫项目/data_warehouse/新氧/'
+inputdir = r'/Users/congcong009/Downloads/爬虫2020/2020-2-19/安心购/'  #/Users/congcong009/Downloads/安心购/'  # E:/Hammer_Studio/tmp-project/咨询项目/艾尔建/爬虫项目/data_warehouse/新氧/'
 df_empty = pd.DataFrame()
 table = {ord(f): ord(t) for f, t in zip(u'，。！？【】（）％＃＠＆１２３４５６７８９０[]/-_#~•①②③④、&*●°@『』｛｝',
                                         u'++++++++++++1234567890++++++++++++++++++++++')}  # u',.!?++()%#@&1234567890')}
 city_key = ['成都', '北京', '广州', '上海']  # ['成都', '北京', '西安', '昆明', '重庆', '广州', '上海']
-project_key = ['除皱', '瘦脸', '玻尿酸', '脂肪', '填充', '眼', '鼻', '皮肤',
-               '美体', '塑形', '面部', '轮廓', '胸部', '私密']                                                           # ['双眼皮', '眼泡', '内眼角', '开眼角''鼻部', '脂肪', '隆胸', '除皱', '瘦脸', '填充', '线雕', '皮肤', '美体', '塑形', '玻尿酸', '自体', '隆鼻', '鼻尖', '鼻翼', '鼻头', '鼻基底', '塌鼻']
+project_key = ['除皱瘦脸', '玻尿酸', '脂肪填充', '眼部整形', '鼻部整形', '皮肤美容', '美体塑形', '面部轮廓', '胸部整形', '私密整形']
+# ['双眼皮', '眼泡', '内眼角', '开眼角''鼻部', '脂肪', '隆胸', '除皱', '瘦脸', '填充', '线雕', '皮肤', '美体', '塑形', '玻尿酸', '自体', '隆鼻', '鼻尖', '鼻翼', '鼻头', '鼻基底', '塌鼻']
 brand_key = ['保妥适', '衡力', '润百颜', '伊婉', '嗨体', '法思丽', '乔雅登', '姣兰', '海薇', '瑞蓝', '润致',
              '爱芙莱', '舒颜', '艾莉薇', '德蔓', '婕尔', '逸美', '贝丽姿', '菲洛嘉', '热玛吉', '奥昵', '馨妍', '玻菲']
 # ['保妥适', '衡力', '无品牌', '润百颜', '伊婉', '嗨体', '法思丽', '乔雅登', '姣兰', '海薇', '瑞蓝', '润致', '爱芙莱', '舒颜', '艾莉薇', '德蔓', '婕尔', '逸美', '公主', '贝丽姿', '皮秒', '水光',
@@ -36,7 +36,7 @@ for parents, dirnames, filenames in os.walk(inputdir):
         df = df.reindex(columns=col_name)
         print(col_name)
         df['区域'] = str(re.findall('|'.join(city_key), filename))
-        df['采集时间'] = str(filename[:10])
+        df['采集时间'] = str(filename[:9])
         print(df)
         # exit()
         for i in range(df.shape[0]):
@@ -55,10 +55,11 @@ for parents, dirnames, filenames in os.walk(inputdir):
             # df.iloc[i, 3] = df.iloc[i].str.replace(', ', '')
             # df.iloc[i] = df.iloc[i].str.replace('\'', '')
         print(df)
+        # exit()
         df_empty = df_empty.append(df, ignore_index=True)
         df_empty = df_empty.loc[:, ~df_empty.columns.str.contains("^Unnamed")]
 # print(df.loc[:, '标题'])
 print(df_empty)
 con = sqlite3.connect("/Users/congcong009/Downloads/爬虫2020/agn.db")
-df_empty.to_sql('xinyang0217', con)
+df_empty.to_sql('xinyang0219', con)
 exit()
