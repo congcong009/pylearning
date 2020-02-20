@@ -8,7 +8,7 @@ import re
 
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 
-inputdir = r'/Users/congcong009/Downloads/爬虫2020/2020-2-19/安心购/'  #/Users/congcong009/Downloads/安心购/'  # E:/Hammer_Studio/tmp-project/咨询项目/艾尔建/爬虫项目/data_warehouse/新氧/'
+inputdir = r'/Users/congcong009/Downloads/爬虫2020/2020-2-20/安心购/'  #/Users/congcong009/Downloads/安心购/'  # E:/Hammer_Studio/tmp-project/咨询项目/艾尔建/爬虫项目/data_warehouse/新氧/'
 df_empty = pd.DataFrame()
 table = {ord(f): ord(t) for f, t in zip(u'，。！？【】（）％＃＠＆１２３４５６７８９０[]/-_#~•①②③④、&*●°@『』｛｝',
                                         u'++++++++++++1234567890++++++++++++++++++++++')}  # u',.!?++()%#@&1234567890')}
@@ -40,7 +40,8 @@ for parents, dirnames, filenames in os.walk(inputdir):
         print(df)
         # exit()
         for i in range(df.shape[0]):
-            df.iloc[i, 2] = str(re.findall('|'.join(project_key), str(df.iloc[i, 4])))
+            # df.iloc[i, 2] = str(re.findall('|'.join(project_key), str(df.iloc[i, 4])))
+            df.iloc[i, 2] = str(re.findall('|'.join(project_key), filename))
             df.iloc[i, 3] = str(re.findall('|'.join(brand_key), str(df.iloc[i, 4])))
             # df.iloc[i, 4] = str(re.findall('|'.join(dose_key), str(df.iloc[i])))
             df.iloc[i, 0] = df.iloc[i, 0].translate(table)
@@ -61,5 +62,5 @@ for parents, dirnames, filenames in os.walk(inputdir):
 # print(df.loc[:, '标题'])
 print(df_empty)
 con = sqlite3.connect("/Users/congcong009/Downloads/爬虫2020/agn.db")
-df_empty.to_sql('xinyang0219', con)
+df_empty.to_sql('xinyang0220', con)
 exit()
