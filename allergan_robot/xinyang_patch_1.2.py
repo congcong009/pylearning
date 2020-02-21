@@ -8,7 +8,7 @@ import re
 
 pd.set_option('expand_frame_repr', False)  # 当列太多时不换行
 
-inputdir = r'/Users/congcong009/Downloads/爬虫2020/2020-2-20/安心购/'  #/Users/congcong009/Downloads/安心购/'  # E:/Hammer_Studio/tmp-project/咨询项目/艾尔建/爬虫项目/data_warehouse/新氧/'
+inputdir = r'/Users/congcong009/Downloads/爬虫2020/2020-2-21/安心购/'  #/Users/congcong009/Downloads/安心购/'  # E:/Hammer_Studio/tmp-project/咨询项目/艾尔建/爬虫项目/data_warehouse/新氧/'
 df_empty = pd.DataFrame()
 table = {ord(f): ord(t) for f, t in zip(u'，。！？【】（）％＃＠＆１２３４５６７８９０[]/-_#~•①②③④、&*●°@『』｛｝',
                                         u'++++++++++++1234567890++++++++++++++++++++++')}  # u',.!?++()%#@&1234567890')}
@@ -62,5 +62,5 @@ for parents, dirnames, filenames in os.walk(inputdir):
 # print(df.loc[:, '标题'])
 print(df_empty)
 con = sqlite3.connect("/Users/congcong009/Downloads/爬虫2020/agn.db")
-df_empty.to_sql('xinyang0220', con)
+df_empty.to_sql('xinyang0221', con)
 exit()
